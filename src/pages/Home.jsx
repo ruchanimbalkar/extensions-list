@@ -18,6 +18,12 @@ export default function Home(){
     function showAll(){
         setInfo(data);
     }
+
+    function removeCard(cardId){
+        const newCards = data.filter((item)=> item.id !== cardId);
+        setInfo(newCards);
+     }
+
     return(<>
 
         <div className="wrapper">
@@ -32,11 +38,14 @@ export default function Home(){
             <div className="container">
             {info.map((item)=>
                 (
+                    // console.log(item.logo)
                     <Card 
-                     imgSrc={item.logo}
+                     logo={item.logo}
                     levelTwoHeading={item.name} 
                     pElement={item.description}
                      isActive= {item.isActive} 
+                     id={item.id}
+                     onClick={removeCard}
                      key={item.id}/>
                 ))}
             </div>
