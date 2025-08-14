@@ -1,11 +1,7 @@
 import Button from "./Button.jsx";
 import Toggle from "./Toggle.jsx";
 import "./Card.css";
-// import {useState} from "react";
-export default function Card({logo,levelTwoHeading, pElement, isActive,id,onClick}){
-
-    // const [someClass, setSomeClass] = useState('');
-
+export default function Card({logo,levelTwoHeading, pElement, isActive,id,onClick, cardsChange}){
     return (<div className="card">
         <div className="child1">
             <img src= {logo} alt={levelTwoHeading}/>
@@ -15,8 +11,8 @@ export default function Card({logo,levelTwoHeading, pElement, isActive,id,onClic
             </div>    
         </div>
         <div className="child2">
-            <Button onClick={()=>onClick(id)} className="button" text="Remove"/>
-            <Toggle className="toggle" isActive={isActive}/>
+            <Button onClick={()=> onClick(id)} className="button" text="Remove"/>
+            <Toggle className="toggle" isActive={isActive}  someChange={cardsChange} id={id}/>
         </div>
     </div>);
 }
