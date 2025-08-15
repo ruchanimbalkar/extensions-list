@@ -14,7 +14,7 @@ export default function Home(){
   const [screenView, setScreenView] = useState("all");
 
    // This function updates the value of the isActive key for this id in the data
-    function updateCards(cardId){  
+    const updateCards = (cardId) => {  
         const cards = info.map((item)=> {
             if(item.id === cardId){
                 item.isActive = (!item.isActive);
@@ -29,7 +29,7 @@ export default function Home(){
         setInfo(cards);
     }
 
-    function checkFilterData(){
+    const checkFilterData = () => {
         if(screenView ==="all"){
            //return info
            return info;
@@ -42,12 +42,11 @@ export default function Home(){
             console.log (screenView)
             return info.filter((item) => item.isActive === false);
         }
-    }
+    };
 
-    //let filteredResults = checkFilterData();
 
     //This function runs when user clicks remove button
-    function removeCard(cardId){
+    const removeCard = (cardId) => {
         //Filter cards (filter out the cards with the ids that were on the card whose remove button was clicked)
         //Filter out from info array
         const cards = info.filter((item)=> item.id !== cardId);
